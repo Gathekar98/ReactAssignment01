@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
-
-
-const Food = ({fooditem}) => {
+import styles from "./Food.module.css";
+const Food = ({fooditem, activebuy, handleBuyButton}) => {
+ 
   return (
     <>
-      <li className="list-group-item">{fooditem}</li>
+      <li className={`${styles['ag-item']} list-group-item ${activebuy && "active"}`}>{fooditem} 
+      <button className={`${styles.button} btn`}
+      onClick={handleBuyButton}
+      >Buy</button>
+      </li>
     </>
   );
 };
