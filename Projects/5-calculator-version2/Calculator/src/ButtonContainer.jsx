@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import css from "./ButtonContainer.module.css";
 const ButtonContainer = ({onButtonClick}) => {
   const buttonNames = [
