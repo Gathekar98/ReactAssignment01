@@ -7,11 +7,6 @@ import Welcomemsg from "./components/Welcomemsg";
 
 
 function App() {
-  // const initialTodoItems = [
-  //   { name: "BUY MILK", dueDate: "04/10/2023" },
-  //   { name: "BUY MILK", dueDate: "04/10/2023" },
-  //   { name: "BUY MILK", dueDate: "04/10/2023" },
-  // ];
 
   const [todoItems, setTodoItems] = useState([]);
 

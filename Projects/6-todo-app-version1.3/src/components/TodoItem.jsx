@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { MdDeleteOutline } from "react-icons/md";
 function TodoItem({ todoName, todoDate , onDeleteClick}) {
   return (
     <div className="container">
@@ -8,7 +9,7 @@ function TodoItem({ todoName, todoDate , onDeleteClick}) {
         <div className="col-2">
           <button type="button" className="btn btn-danger todo-btn"
           onClick={() => onDeleteClick(todoName)}>
-            Delete
+                                                                         <MdDeleteOutline />
           </button>
         </div>
       </div>

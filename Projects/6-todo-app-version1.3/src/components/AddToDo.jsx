@@ -1,54 +1,44 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useRef } from "react";
 import css from "./AddToDo.module.css";
+import { MdOutlineAdd } from "react-icons/md";
 
 function AddToDo({ onNewItem }) {
-  const [todoName, setTodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-
-  const handleDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
-
-  const handleAddButtonClicked = () => {
-    onNewItem(todoName, dueDate);
-    setDueDate("");
-  setTodoName("");
+  const handleAddButtonClicked = (event) => {
+    event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
+    onNewItem(todoName, dueDate); 
   };
   return (
     <div className="container">
-      <div className="row todo-row">
+      <form onSubmit={handleAddButtonClicked} className="row todo-row">
         <div className="col-6">
           <input
+            ref={todoNameElement}
             className={`${css["input-bar"]}`}
             type="text"
             placeholder="Enter Todo Here"
-          value={todoName}
-            onChange={handleNameChange}
           />
         </div>
         <div className="col-4">
           <input
+            ref={dueDateElement}
             className={`${css["input-bar"]}`}
             type="date"
-            value={dueDate}
-            onChange={handleDateChange}
           />
         </div>
         <div className="col-2">
-          <button
-            type="button"
-            className="btn btn-success todo-btn"
-            onClick={handleAddButtonClicked}
-          >
-            Add
+          <button className="btn btn-success todo-btn">
+            <MdOutlineAdd />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
