@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import css from "./Items.module.css";
 import TodoItem from "./TodoItem";
-const Items = ({ todoItems , onDeleteClick }) => {
+import { TodoItemContext } from "../store/todo-items-store";
+
+
+const Items = ({onDeleteClick }) => {
+  const {todoItems} = useContext(TodoItemContext);
+
+
   return (
     <>
       <div className={`${css["items-container"]}`}>

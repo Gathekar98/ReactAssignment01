@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import css from "./AddToDo.module.css";
 import { MdOutlineAdd } from "react-icons/md";
+import { TodoItemContext } from "../store/todo-items-store";
 
-function AddToDo({ onNewItem }) {
+function AddToDo() {
+  const {addNewItem} = useContext(TodoItemContext);
   const todoNameElement = useRef();
   const dueDateElement = useRef();
 
@@ -13,7 +15,7 @@ function AddToDo({ onNewItem }) {
     const dueDate = dueDateElement.current.value;
     todoNameElement.current.value = "";
     dueDateElement.current.value = "";
-    onNewItem(todoName, dueDate); 
+    addNewItem(todoName, dueDate); 
   };
   return (
     <div className="container">
