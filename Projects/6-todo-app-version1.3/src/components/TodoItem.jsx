@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 
-
-
 import { useContext } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { TodoItemContext } from "../store/todo-items-store";
